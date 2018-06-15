@@ -1,6 +1,6 @@
 NAME = libftprintf.a
-
 CC = gcc
+FLAGS = -Wall -Wextra -Werror
 
 SRC = 	ft_printf.c parsing.c type_s.c type_d_i.c type_p.c\
 		type_o_big_o.c type_u.c type_x.c type_big_x.c type_c_big_d.c\
@@ -39,7 +39,7 @@ $(NAME) : $(OBJ)
 
 $(OBJ) :
 	@echo "\033[1;32m◊ +++++ CREATING $(NAME) OBJECTS	: √\033[0m"
-	@$(CC) -c $(SRC) $(addprefix libft/, $(SRC_LIB))
+	@$(CC) $(FLAGS) -c $(SRC) $(addprefix libft/, $(SRC_LIB))
 
 fclean : clean
 	@echo "\033[1;31m◊ ----- DELETING $(NAME)		: √\033[0m"
