@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 # define BUF_SIZE 8192
 # define FLAGS "#0- +"
@@ -113,8 +113,8 @@ void			ft_fill_wstring(t_env *e, uint32_t *arg);
 ** +++++ TYPE_p.C +++++
 */
 void			ft_type_p(t_env *e);
-void			ft_post_indent_p(t_env *e, char *arg_addr, int len);
-void			ft_pre_indent_p(t_env *e, char *arg_addr, int len);
+void			ft_post_indent_p(t_env *e, char *arg_addr);
+void			ft_pre_indent_p(t_env *e, char *arg_addr);
 
 /*
 ** +++++ TYPE_d_i.C +++++

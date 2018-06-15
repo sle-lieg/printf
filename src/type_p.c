@@ -26,12 +26,12 @@ void	ft_type_p(t_env *e)
 	if (e->accu > 0)
 		e->width -= e->accu;
 	if (e->flags[MIN])
-		ft_post_indent_p(e, tmp, len);
+		ft_post_indent_p(e, tmp);
 	else
-		ft_pre_indent_p(e, tmp, len);
+		ft_pre_indent_p(e, tmp);
 }
 
-void	ft_post_indent_p(t_env *e, char *tmp, int len)
+void	ft_post_indent_p(t_env *e, char *tmp)
 {
 	*e->pos++ = '0';
 	*e->pos++ = 'x';
@@ -46,7 +46,7 @@ void	ft_post_indent_p(t_env *e, char *tmp, int len)
 		*e->pos++ = ' ';
 }
 
-void	ft_pre_indent_p(t_env *e, char *tmp, int len)
+void	ft_pre_indent_p(t_env *e, char *tmp)
 {
 	if (e->flags[ZERO] && !e->accu_bool)
 	{

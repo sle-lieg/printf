@@ -95,15 +95,44 @@ static void		ft_fillarray(char **tab, const char *s, char c)
 
 char			**ft_strsplit(const char *s, char c)
 {
-	int		i;
-	int		pos;
 	char	**tab;
 
-	pos = 0;
-	i = 0;
 	tab = ft_inittab1(s, c);
 	if (!tab)
 		return (NULL);
 	ft_fillarray(tab, s, c);
 	return (tab);
 }
+
+char**      splitStr(const char *s, char c)
+{
+   char**   array;
+   int      nbWords;
+   int      i;
+
+   nbWords = 0;
+   i = 0;
+   while (*s && ++i)
+   {
+      if (*s != c && (!s[1] || s[1] == c))
+         ++nbWords;
+         ++s;
+   }
+   if (!(array = (char*)malloc(nbWords * sizeof(char*))))
+      return NULL;
+   while (i)
+   {
+
+   }
+}
+
+char			**ft_strsplit(const char *s, char c)
+{
+   if (!s)
+      return NULL;
+   while (*s == c)
+      ++s;
+   splitStr(s, c);
+}
+
+// bla bosu 
