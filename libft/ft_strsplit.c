@@ -109,21 +109,23 @@ char**      splitStr(const char *s, char c)
    char**   array;
    int      nbWords;
    int      i;
+   int      j;
 
    nbWords = 0;
    i = 0;
-   while (*s && ++i)
-   {
-      if (*s != c && (!s[1] || s[1] == c))
+   while (*s[i])
+      if (*s[i] != c && (!s[i + 1] || s[++i] == c))
          ++nbWords;
-         ++s;
-   }
-   if (!(array = (char*)malloc(nbWords * sizeof(char*))))
+   if (!(array = (char**)malloc(nbWords * sizeof(char*))))
       return NULL;
-   while (i)
+   j = i - 1;
+   while (j > 0)
    {
+      if (s[j] != c && s[--j] == c)
 
+      if (*(--s) == c && )
    }
+   
 }
 
 char			**ft_strsplit(const char *s, char c)
@@ -135,4 +137,4 @@ char			**ft_strsplit(const char *s, char c)
    splitStr(s, c);
 }
 
-// bla bosu 
+// bla bosu v 
