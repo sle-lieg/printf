@@ -19,6 +19,9 @@
 # include <stdint.h>
 # include "get_next_line.h"
 
+#include <stdio.h>
+
+
 # define FOUR 0x1F0000
 # define THREE 0xF800
 # define TWO 0x780

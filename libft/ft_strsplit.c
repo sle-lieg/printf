@@ -12,129 +12,55 @@
 
 #include "libft.h"
 
-static char		**ft_inittab2(char **ptr, const char *s, char c)
+char**      initArray(const char *s, char c)
 {
-	int i;
-	int j;
-	int dim;
-
-	i = 0;
-	j = 0;
-	while (s && s[i])
-	{
-		dim = 0;
-		while (s[i] != c && s[i])
-		{
-			dim++;
-			i++;
-		}
-		if (dim)
-		{
-			ptr[j] = (char *)malloc(sizeof(char) * dim + 1);
-			if (!ptr[j])
-				return (NULL);
-			j++;
-		}
-		if (s[i])
-			i++;
-	}
-	return (ptr);
-}
-
-static char		**ft_inittab1(const char *s, char c)
-{
-	int		i;
-	int		count;
-	char	**tab;
-
-	count = 0;
-	i = 0;
-	while (s && s[i])
-	{
-		if (s[i] != c && (s[i + 1] == c || !s[i + 1]))
-			count += 1;
-		i++;
-	}
-	tab = (char **)malloc(sizeof(*tab) * count + 1);
-	if (!tab)
-		return (NULL);
-	tab[count] = NULL;
-	ft_inittab2(tab, s, c);
-	if (!tab)
-		return (NULL);
-	return (tab);
-}
-
-static void		ft_fillarray(char **tab, const char *s, char c)
-{
-	int i;
-	int j;
-	int p;
-
-	i = 0;
-	j = 0;
-	p = 0;
-	while (s && s[i])
-	{
-		while (s[i] == c && s[i])
-		{
-			p = 0;
-			i++;
-		}
-		while (s[i] != c && s[i])
-		{
-			tab[j][p] = s[i];
-			p++;
-			i++;
-		}
-		if (tab[j])
-			tab[j][p] = '\0';
-		j++;
-	}
-}
-
-char			**ft_strsplit(const char *s, char c)
-{
-	char	**tab;
-
-	tab = ft_inittab1(s, c);
-	if (!tab)
-		return (NULL);
-	ft_fillarray(tab, s, c);
-	return (tab);
-}
-
-char**      splitStr(const char *s, char c)
-{
-   char**   array;
-   int      nbWords;
-   int      i;
-   int      j;
+   char**      array;
+   const char* tmp;
+   int         nbWords;
 
    nbWords = 0;
-   i = 0;
-   while (*s[i])
-      if (*s[i] != c && (!s[i + 1] || s[++i] == c))
+   tmp = s;
+   while (*tmp)
+      if (*tmp++ != c && (!*tmp || *tmp == c))
          ++nbWords;
-   if (!(array = (char**)malloc(nbWords * sizeof(char*))))
+   if (!(array = (char**)malloc((nbWords + 1) * sizeof(char*))))
       return NULL;
-   j = i - 1;
-   while (j > 0)
+   array[nbWords] = NULL;
+   nbWords = 0;
+   tmp = s;
+   while (*tmp)
    {
-      if (s[j] != c && s[--j] == c)
-
-      if (*(--s) == c && )
+      while (*tmp && *tmp != c)
+         ++tmp;
+      if (!(array[nbWords++] = (char*)malloc((tmp - s + 1) * sizeof(char))))
+         return NULL;
+      while (*tmp == c)
+         ++tmp;
+      s = tmp;
    }
-   
+   return array;
 }
 
 char			**ft_strsplit(const char *s, char c)
 {
-   if (!s)
-      return NULL;
+   char**      array;
+   const char* tmp;
+   int         word;
+
+   word = 0;
    while (*s == c)
       ++s;
-   splitStr(s, c);
+   array = initArray(s, c);
+   tmp = s;
+   while (array[word])
+   {
+      while (*tmp != c)
+         ++tmp;
+      ft_memcpy(array[word], s, tmp - s);
+      array[word++][tmp - s] = '\0';
+      while (*tmp == c)
+         ++tmp;
+      s = tmp;
+   }
+   return array;
 }
-
-// bla bosu v 
