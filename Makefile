@@ -33,12 +33,11 @@ SRC_FILES_LIBFT = \
 	ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c\
 	ft_strtrim.c ft_strsplit.c ft_itoa.c ft_putchar.c\
 	ft_putstr.c ft_putendl.c ft_putnbr.c ft_putchar_fd.c\
-	ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c\
-	ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c\
-	ft_lstiter.c ft_lstmap.c ft_isupper.c ft_islower.c\
-	ft_lstaddend.c ft_d_lstaddfront.c ft_d_lstaddend.c \
-	ft_d_lstdel.c ft_d_lstdelone.c ft_switchchar.c ft_itoa.c\
-	ft_count_n.c ft_pow.c ft_itoa_base.c ft_wchar_len.c ft_wstr_len.c
+	ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c\
+	ft_lstdelone.c ft_lstdel.c ft_lstadd.c	ft_lstiter.c\
+	ft_lstmap.c ft_lstaddend.c ft_d_lstaddfront.c ft_d_lstaddend.c\
+	ft_d_lstdel.c ft_d_lstdelone.c ft_switchchar.c ft_count_n.c\
+	ft_pow.c ft_itoa_base.c ft_wchar_len.c ft_wstr_len.c
 
 SRC_DIR_PRINTF = ./src/
 SRC_DIR_LIBFT	=	./libft/
@@ -51,12 +50,16 @@ OBJ			= $(SRC_PRINTF:$(SRC_DIR_PRINTF)%.c=$(OBJ_DIR)%.o) $(SRC_LIBFT:$(SRC_DIR_L
 
 INC	= -I ./inc/
 
-all : $(NAME)
+all : createDir $(NAME)
+
+createDir:
+	@test -d $(OBJ_DIR) || mkdir $(OBJ_DIR)
 
 $(NAME) : $(OBJ)
-	@echo "\033[1;32m◊ +++++ CREATING $(NAME)		: √\033[0m"
+	@echo "\033[1;32m◊ +++++ CREATING $(NAME)	: √\033[0m"
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+
 
 $(OBJ_DIR)%.o: $(SRC_DIR_PRINTF)%.c
 	@$(CC) $(FLAGS) -c $^ -o $@ $(INC)

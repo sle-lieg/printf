@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-lieg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-lieg <sle-lieg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:31:59 by sle-lieg          #+#    #+#             */
-/*   Updated: 2017/03/10 01:44:07 by sle-lieg         ###   ########.fr       */
+/*   Updated: 2018/06/17 13:50:50 by sle-lieg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 # include <unistd.h>
 # include <stdint.h>
 # include "get_next_line.h"
-
-#include <stdio.h>
-
 
 # define FOUR 0x1F0000
 # define THREE 0xF800

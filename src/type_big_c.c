@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type_big_c.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-lieg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-lieg <sle-lieg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 01:11:48 by sle-lieg          #+#    #+#             */
-/*   Updated: 2017/03/10 01:36:17 by sle-lieg         ###   ########.fr       */
+/*   Updated: 2018/06/17 15:04:09 by sle-lieg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_type_big_c(t_env *e)
 	uint32_t arg;
 
 	arg = va_arg(e->ap, uint32_t);
-	if (MB_CUR_MAX == 1 && arg > 255)
+	if ((MB_CUR_MAX == 1 && arg > 255) || arg > 0x10FFFF)
 	{
 		e->error = 1;
 		return ;

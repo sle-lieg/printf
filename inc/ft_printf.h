@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-lieg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-lieg <sle-lieg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 00:39:12 by sle-lieg          #+#    #+#             */
-/*   Updated: 2017/03/12 16:17:09 by sle-lieg         ###   ########.fr       */
+/*   Updated: 2018/06/17 14:15:01 by sle-lieg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <stdarg.h>
 # include "libft.h"
+
+ #include <stdio.h>
+
 
 # define BUF_SIZE 8192
 # define FLAGS "#0- +"
@@ -36,6 +39,7 @@ typedef struct	s_env
 	void	(*type_select[15])(struct s_env*);
 	char	buff[BUF_SIZE];
 	char	*pos;
+	char	*last_valid_pos;	
 	int		flags[5];
 	int		modif[4];
 	int		width;
