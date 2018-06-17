@@ -6,7 +6,7 @@
 /*   By: sle-lieg <sle-lieg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 01:11:48 by sle-lieg          #+#    #+#             */
-/*   Updated: 2018/06/17 20:41:01 by sle-lieg         ###   ########.fr       */
+/*   Updated: 2018/06/17 20:54:13 by sle-lieg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_pre_indent_big_c(t_env *e, uint32_t arg)
 {
 	while (e->width-- > 0)
 		*e->pos++ = (e->flags[ZERO] ? '0' : ' ');
-	*((int *)e->pos) = 0;	
+	*((int *)e->pos) = 0;
 	if (arg & FOUR)
 		ft_four_octet(e, arg);
 	else if (arg & THREE)

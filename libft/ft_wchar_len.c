@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_wchar_len.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-lieg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-lieg <sle-lieg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/09 02:48:42 by sle-lieg          #+#    #+#             */
-/*   Updated: 2017/03/10 01:42:54 by sle-lieg         ###   ########.fr       */
+/*   Updated: 2018/06/17 20:54:49 by sle-lieg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_wchar_len(uint32_t car)
 		return (4);
 	else if (car & THREE)
 		return (3);
-	else if (car & TWO)
+	else if (car & TWO && MB_CUR_MAX > 1)
 		return (2);
 	else if (car)
 		return (1);
