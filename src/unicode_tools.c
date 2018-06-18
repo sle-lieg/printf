@@ -6,7 +6,7 @@
 /*   By: sle-lieg <sle-lieg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 01:19:36 by sle-lieg          #+#    #+#             */
-/*   Updated: 2018/06/17 20:20:51 by sle-lieg         ###   ########.fr       */
+/*   Updated: 2018/06/18 08:25:44 by sle-lieg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_four_octet(t_env *e, uint32_t arg)
 {
-	// printf("4 OCTETS\n");
 	*e->pos++ ^= (0xF0 + (arg >> 18));
 	*e->pos++ ^= (0x80 + ((arg & 0x3F000) >> 12));
 	*e->pos++ ^= (0x80 + ((arg & 0xFC0) >> 6));
@@ -24,7 +23,6 @@ int	ft_four_octet(t_env *e, uint32_t arg)
 
 int	ft_three_octet(t_env *e, uint32_t arg)
 {
-	// printf("3 OCTETS\n");
 	*e->pos++ ^= (0xE0 + (arg >> 12));
 	*e->pos++ ^= (0x80 + ((arg & 0xFC0) >> 6));
 	*e->pos++ ^= (0x80 + (arg & 0x3F));
@@ -33,7 +31,6 @@ int	ft_three_octet(t_env *e, uint32_t arg)
 
 int	ft_two_octet(t_env *e, uint32_t arg)
 {
-	// printf("2 OCTETS\n");	
 	*e->pos++ ^= (0xC0 + (arg >> 6));
 	*e->pos++ ^= (0x80 + (arg & 0x3F));
 	return (2);

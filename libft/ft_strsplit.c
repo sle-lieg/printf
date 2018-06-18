@@ -6,7 +6,7 @@
 /*   By: sle-lieg <sle-lieg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 17:48:10 by sle-lieg          #+#    #+#             */
-/*   Updated: 2018/06/17 10:50:29 by sle-lieg         ###   ########.fr       */
+/*   Updated: 2018/06/18 08:39:00 by sle-lieg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static	char	**initarray(const char *s, char c)
 {
-	const	char	*tmp;
-	char			**array;
+	const char	*tmp;
+	char		**array;
 	int			nb_words;
 
 	nb_words = 0;
@@ -43,8 +43,8 @@ static	char	**initarray(const char *s, char c)
 
 char			**ft_strsplit(const char *s, char c)
 {
-	const	char	*tmp;
-	char			**array;
+	const char	*tmp;
+	char		**array;
 	int			word;
 
 	word = 0;

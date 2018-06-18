@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_wstr_len.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-lieg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-lieg <sle-lieg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/09 00:08:22 by sle-lieg          #+#    #+#             */
-/*   Updated: 2017/03/10 01:43:24 by sle-lieg         ###   ########.fr       */
+/*   Updated: 2018/06/18 08:21:53 by sle-lieg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_wstr_len(uint32_t *str)
 			len += 4;
 		else if (*str & THREE)
 			len += 3;
-		else if (*str & TWO)
+		else if (*str & TWO && MB_CUR_MAX > 1)
 			len += 2;
 		else
 			len++;

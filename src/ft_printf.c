@@ -6,7 +6,7 @@
 /*   By: sle-lieg <sle-lieg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 00:08:29 by sle-lieg          #+#    #+#             */
-/*   Updated: 2018/06/17 18:49:54 by sle-lieg         ###   ########.fr       */
+/*   Updated: 2018/06/18 08:24:30 by sle-lieg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,14 @@ int		ft_printf(const char *format, ...)
 {
 	t_env		e;
 	va_list		ap_1;
-	// static int	err_bool = FALSE;
 
 	va_start(ap_1, format);
 	ft_init(&e);
 	va_copy(e.ap, ap_1);
 	ft_read(&e, format);
-	// if (e.error)
-	// 	err_bool = 1;
 	ft_print_buff(&e);
 	va_end(ap_1);
 	va_end(e.ap);
-	// if (err_bool)
 	if (e.error)
 		return (-1);
 	return (e.ret);
