@@ -57,15 +57,15 @@ createDir:
 
 $(NAME) : $(OBJ)
 	@echo "\033[1;32m◊ +++++ CREATING $(NAME)	: √\033[0m"
+	@echo "ar rc $(NAME)"	
 	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
-
+	ranlib $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR_PRINTF)%.c
-	@$(CC) $(FLAGS) -c $^ -o $@ $(INC)
+	$(CC) $(FLAGS) -c $^ -o $@ $(INC)
 
 $(OBJ_DIR)%.o: $(SRC_DIR_LIBFT)%.c
-	@$(CC) $(FLAGS) -c $^ -o $@ $(INC)
+	$(CC) $(FLAGS) -c $^ -o $@ $(INC)
 
 clean :
 	@echo "\033[1;31m◊ ----- DELETING $(NAME) OBJECTS	: √\033[0m"
