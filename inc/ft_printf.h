@@ -6,7 +6,7 @@
 /*   By: sle-lieg <sle-lieg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 00:39:12 by sle-lieg          #+#    #+#             */
-/*   Updated: 2018/06/18 08:28:53 by sle-lieg         ###   ########.fr       */
+/*   Updated: 2018/06/18 09:30:39 by sle-lieg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include "libft.h"
 
-# define BUF_SIZE 8192
+# define BUF_SIZE 32768
 # define FLAGS "#0- +"
 # define MODIF "hljz"
 # define TYPE "sSpdDioOuUxXcCb"
